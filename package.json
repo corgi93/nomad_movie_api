@@ -1,0 +1,27 @@
+{
+  "dependencies": {
+    "graphql-yoga": "^1.18.3"
+  },
+  "name": "nomad_graphql_api",
+  "description": "",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-stage-3": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/corgi93/nomad_graphql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/corgi93/nomad_graphql/issues"
+  },
+  "homepage": "https://github.com/corgi93/nomad_graphql#readme"
+}
