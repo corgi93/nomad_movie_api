@@ -1,9 +1,26 @@
-# 스키마는 서버 사이드 언어나 db를 이해하기 위한 것도 아닌 그냥 graphql을 위한 정보. 
+# 스키마는 서버 사이드 언어나 db를 이해하기 위한 것도 아닌 그냥 graphql을 위한 정보.
 # 받거나 줄 정보에 대한 서술로 보면 되고 프로그래밍적인 요소는 없다
 
-# 사용자가 뭘 할지 정의. 
+# 사용자가 뭘 할지 정의.
 # Query - DB로부터 정보를 얻음. 정보를 받을 떄만 쓰임
-# Mutation(변형) - 정보를 변형하고 서버, db, 메모리에서 정보를 변경할 때 
-type Query{
-    name: String!
+# Mutation(변형) - 정보를 변형하고 서버, db, 메모리에서 정보를 변경할 때
+
+type Movie {
+  id: Int!
+  name: String!
+  score: Int!
+}
+
+# id를 넣어 맞는 Person을 리턴해보자
+# !는 넣으면 필수사항 아니면 선택사항
+type Query {
+  movies: [Movie]!
+  movie(id: Int!): Movie
+}
+
+# Mutation을 사용할 거라면 type으로 Mutation 선언.
+# Mutation은 변형이라는 뜻처럼 DB에서 상태가 변할 떄 사용
+type Mutation {
+  addMovie(name: String!, score: Int!): Movie!
+  deleteMovie(id: Int!): Boolean!
 }

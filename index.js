@@ -1,9 +1,9 @@
 import { GraphQLServer } from "graphql-yoga";
-import resolvers from "./graphql/resolver";
+import resolvers from "./graphql/resolvers";
 
 const server = new GraphQLServer({
-  typeDefs: "graphql/schema.graphql",
-  resolver: resolvers // es6이후에선 resolvers만 써도 됨
+  typeDefs: "graphql/scheme.graphql",
+  resolvers // resolvers추가
 });
 
 server.start(()=> console.log("Graphql is running on localhost:4000!"))

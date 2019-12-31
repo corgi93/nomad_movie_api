@@ -14,8 +14,16 @@
     DB로 보내거나, 다른 메모리로 보내거나 , 다른 api로 보낼 수도 있다.
 */
 
-const resolver = {
+import { getMovies, getById, addMovie, deleteMovie } from "../db/data";
+const resolvers = {
   Query: {
-    name: () => "nicolas"
+    movies: () => getMovies,
+    movie: (_, { id }) => getById(id)
+  },
+  Mutation: {
+    addMovie: (_, { name, score }) => addMovie(name, score),
+    deleteMovie: (_, { id }) => deleteMovie(id)
   }
 };
+
+export default resolvers;
