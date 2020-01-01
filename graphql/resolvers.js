@@ -14,16 +14,17 @@
     DB로 보내거나, 다른 메모리로 보내거나 , 다른 api로 보낼 수도 있다.
 */
 
-import { getMovies, getById, addMovie, deleteMovie } from "../db/data";
+// import { getMovies, getById, addMovie, deleteMovie } from "../db/data";
+import { getMovies } from "../db/api_data";
 const resolvers = {
   Query: {
-    movies: () => getMovies,
-    movie: (_, { id }) => getById(id)
+    movies: (_, {rating, limit}) => getMovies(limit, rating),
+  //   movie: (_, { id }) => getById(id)
   },
-  Mutation: {
-    addMovie: (_, { name, score }) => addMovie(name, score),
-    deleteMovie: (_, { id }) => deleteMovie(id)
-  }
+  // Mutation: {
+  //   addMovie: (_, { name, score }) => addMovie(name, score),
+  //   deleteMovie: (_, { id }) => deleteMovie(id)
+  // }
 };
 
 export default resolvers;

@@ -7,20 +7,26 @@
 
 type Movie {
   id: Int!
-  name: String!
-  score: Int!
+#  name: String!
+#  score: Int!
+  title: String!
+  rating: Float!
+  summary: String!
+  language: String!
+  
 }
 
 # id를 넣어 맞는 Person을 리턴해보자
 # !는 넣으면 필수사항 아니면 선택사항
 type Query {
-  movies: [Movie]!
-  movie(id: Int!): Movie
+  movies(limit: Int, rating: Float): [Movie]!
+#  movie(id: Int!): Movie
 }
 
 # Mutation을 사용할 거라면 type으로 Mutation 선언.
 # Mutation은 변형이라는 뜻처럼 DB에서 상태가 변할 떄 사용
-type Mutation {
-  addMovie(name: String!, score: Int!): Movie!
-  deleteMovie(id: Int!): Boolean!
-}
+
+# type Mutation {
+#  addMovie(score: Int!, name: String!): Movie!
+#  deleteMovie(id: Int!): Boolean!
+#}
